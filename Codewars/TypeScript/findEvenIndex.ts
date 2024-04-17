@@ -1,22 +1,17 @@
 export function findEvenIndex(arr: number[]): number {
-    if (arr.length == 0) {
-        return -1
-    }
-
     for (let i = 0; i < arr.length; i++) {
-        let leftSum = 0;
-        let rightSum = 0;
+        let leftSum: number = 0;
+        let rightSum: number = 0;
 
-        // slice the given array to the left and right parts depending on i
-        let toTheLeft = arr.slice(0, i);
-        let toTheRight = arr.slice(i + 1);
-
-        // handle first and last index of array
+        // if not first index, get the sum to the left of index
         if (i != 0) {
+            let toTheLeft = arr.slice(0, i);
             leftSum = arraySum(toTheLeft);
         }
 
+        // if not last index, get the sum to the right of index
         if (i != arr.length - 1) {
+            let toTheRight = arr.slice(i + 1);
             rightSum = arraySum(toTheRight);
         }
 
