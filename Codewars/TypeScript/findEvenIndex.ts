@@ -4,8 +4,8 @@ export function findEvenIndex(arr: number[]): number {
     }
 
     for (let i = 0; i < arr.length; i++) {
-        let left = 0;
-        let right = 0;
+        let leftSum = 0;
+        let rightSum = 0;
 
         // slice the given array to the left and right parts depending on i
         let toTheLeft = arr.slice(0, i);
@@ -13,17 +13,21 @@ export function findEvenIndex(arr: number[]): number {
 
         // handle first and last index of array
         if (i != 0) {
-            // reduces an array to one number value
-            left = toTheLeft.reduce((total, num) => { return total + num; });
-        }
-        if (i != arr.length - 1) {
-            right = toTheRight.reduce((total, num) => { return total + num; });
+            leftSum = arraySum(toTheLeft);
         }
 
-        if (left == right) {
+        if (i != arr.length - 1) {
+            rightSum = arraySum(toTheRight);
+        }
+
+        if (leftSum == rightSum) {
             return i;
         }
     }
-
     return -1;
+}
+
+// reduces an array to one number value 
+function arraySum(array: number[]): number {
+    return array.reduce((total, num) => { return total + num; });
 }
