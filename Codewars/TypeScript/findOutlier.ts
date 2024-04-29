@@ -17,17 +17,22 @@ export function findOutlier(integers: number[]): number {
         if (isEvenNumber(integers[i])) {
             evenNumbers.push(integers[i]);
         } else {
-            oddNumbers.push(integers[i])
+            oddNumbers.push(integers[i]);
+        }
+
+        // Stop looping when the outlier is found
+        if (i >= 2) {
+            if (evenNumbers.length == 1) {
+                return evenNumbers[0];
+            } else if (oddNumbers.length == 1) {
+                return oddNumbers[0];
+            }
         }
     }
-
-    if (evenNumbers.length == 1) {
-        return evenNumbers[0]
-    } else {
-        return oddNumbers[0]
-    }
+    // should never happen
+    return 0;
 }
 
 export function isEvenNumber(number: number): boolean {
-    return number % 2 === 0
+    return number % 2 === 0;
 }
