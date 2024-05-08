@@ -9,7 +9,7 @@ Note: If the number is a multiple of both 3 and 5, only count it once.
 
 export class Challenge {
     static solution(number: number) {
-        if (number < 0) {
+        if (number <= 0) {
             return 0
         }
 
