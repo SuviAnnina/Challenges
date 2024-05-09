@@ -13,7 +13,7 @@ if (x) == ['a', 3] you should return [['a', 3], ['a', 3], ['a', 3]].
 export function explode(x: (number | string)[]): (number | string)[] | (number | string)[][] {
 
     let sum = 0;
-    let result_list: (number | string)[][] = [];
+    let result_array: (number | string)[][] = [];
     let has_zero = false;
 
     for (let i = 0; i < 2; i++) {
@@ -30,8 +30,8 @@ export function explode(x: (number | string)[]): (number | string)[] | (number |
     }
 
     for (let i = 0; i < sum; i++) {
-        result_list.push([...x]);
+        result_array.push([...x]);
     }
 
-    return result_list
+    return result_array
 }
